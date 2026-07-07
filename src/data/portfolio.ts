@@ -187,7 +187,7 @@ export const portfolio = {
   },
   personal: {
     serviceId: 'BA-10481',
-    dob: '14 Sep 1998',
+    dob: '14 Sep 1997',
     location: 'Dhaka, Bangladesh',
     height: "5'8\"",
     weight: '62 kg',
