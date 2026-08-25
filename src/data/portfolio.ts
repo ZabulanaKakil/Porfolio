@@ -936,8 +936,8 @@ detail: [
 { text: 'Tasnia Akter Ety', highlight: true },
 { text: ' on ' },
 { text: "21st August", highlight: true },
-{ text: 'Alhamdulillah, with all the ongoing pressures in the current month, I was finally able to get this nice achievement of my life.' }
-{ text: 'Thanks to my beautiful and supportive wife, I can focus more on my work and progress further.' }
+{ text: 'Alhamdulillah, with all the ongoing pressures in the current month, I was finally able to get this nice achievement of my life.' },
+{ text: 'Thanks to my beautiful and supportive wife, I can focus more on my work and progress further.' },
 ]
 },
     
