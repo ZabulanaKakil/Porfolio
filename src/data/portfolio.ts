@@ -194,7 +194,7 @@ export const portfolio = {
     bloodGroup: 'O+ve',
     religion: 'Islam',
     sibling: '1 Sister : Sumaiya Tahrin Srijony (Married)',
-    maritalStatus: 'Single',
+    maritalStatus: 'Married',
     educationalBackground: 'Science',
     parents: {
       father: 'Md. Abu Sufian',
