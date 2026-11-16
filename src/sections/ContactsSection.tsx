@@ -200,6 +200,15 @@ export function ContactsSection() {
           <p className="site-footer-meta__line">© {new Date().getFullYear()} {portfolio.name}. All rights reserved.</p>
           <p className="site-footer-meta__line">Last corrected at {portfolio.lastCorrectedAt}</p>
         </div>
+
+        <a
+          href={portfolio.contacts.allLinksHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="contacts-all-links"
+        >
+          {portfolio.contacts.allLinksLabel}
+        </a>
       </div>
     </SectionWrapper>
   )

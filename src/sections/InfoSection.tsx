@@ -48,15 +48,22 @@ export function InfoSection() {
                 {portfolio.name}
               </h1>
               <hr className="hero-name-divider" aria-hidden="true" />
-              <p className="hero-title-badge">{portfolio.title}</p>
-              <p className="mt-3 text-[clamp(1rem,2.5vw,1.25rem)] font-medium leading-snug text-theme-muted">
-                {portfolio.tagline}
+              <p className="hero-title-badge">General Manager</p>
+              <p className="hero-retired-line">
+                <span className="hero-retired-rule" aria-hidden="true" />
+                <span>{portfolio.tagline}</span>
+                <span className="hero-retired-rule" aria-hidden="true" />
               </p>
+              <p className="hero-title-badge">Operations, Administration, HR &amp; Security</p>
             </div>
           </div>
 
           <div className="hero-bio mt-8">
             <p className="hero-bio__salutation">{portfolio.salutation}</p>
+            <p className="hero-objective-kicker">Career objective</p>
+            <p className="hero-bio__paragraph text-[clamp(0.95rem,2.5vw,1.05rem)] leading-relaxed text-theme-muted">
+              {portfolio.careerObjective}
+            </p>
             <BioText
               spans={portfolio.bioIntro}
               className="hero-bio__paragraph text-[clamp(0.95rem,2.5vw,1.05rem)] leading-relaxed text-theme-muted"

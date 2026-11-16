@@ -7,6 +7,11 @@ const accentMap: Record<SectionId, { accent: string; glow: string; bar: string }
     glow: 'from-google-blue/20',
     bar: 'bg-google-blue',
   },
+  jobs: {
+    accent: 'text-google-yellow',
+    glow: 'from-google-yellow/20',
+    bar: 'bg-google-yellow',
+  },
   journey: {
     accent: 'text-google-green',
     glow: 'from-google-green/20',

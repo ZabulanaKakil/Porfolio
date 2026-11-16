@@ -14,7 +14,7 @@
 | **GitHub repo** | [ZabulanaKakil/Porfolio](https://github.com/ZabulanaKakil/Porfolio) |
 | **Live site** | https://zabulanakakil.github.io/Porfolio/ |
 | **Old site (reference)** | https://tanvirnahian.gt.tc/?i=1 |
-| **CV PDF** | https://tanvirnahian.gt.tc/mycv.pdf |
+| **CV PDF** | `public/Tanvir Nahian Swapnil CV Nov 2026.pdf` |
 | **Local path** | `e:\Projects\my portfolio` |
 | **Deploy** | GitHub Actions → GitHub Pages on push to `main` (`.github/workflows/static.yml`) |
 | **Vite base path** | `/Porfolio/` (repo name spelling — intentional) |
@@ -47,13 +47,16 @@ Do **not** use `main` / root — that bypasses the build.
 - Lucide React + inline SVG brand icons (Facebook, Instagram, GitHub, LinkedIn, Discord)
 - **3D effects:** CSS `Card3D` hover tilt on cards (desktop); **not** active Three.js/R3F canvas (removed in `277d4e1`; deps still in `package.json` — optional cleanup)
 
-### Site sections (5 tabs)
+### Site sections (6 tabs)
 
-1. **Info** — Hero photo, name, bio, CV summary, personal specs table, skill highlight chips, Tolkien quote
-2. **Journey** — “Through the ages” timeline 1998–2025, color-coded Life / Education / Achievement / Job, tap for detail modals
+Order: Info, Jobs, Skills, Achievements, Journey, Contacts.
+
+1. **Info** — Hero, career objective, bio, personal specs, competency chips, Tolkien quote
+2. **Jobs** — Four structured role cards (Dreamer’s companies, AAB, 7 Signal Battalion, 11 Signal Battalion) with grouped duties
 3. **Skills** — Categorized skills with star ratings + detail modals
-4. **Achievements** — GOC Coin, 97 Inf Bde, Commando/Weapons courses, Operation Utoron
-5. **Contacts** — Two-column contact cards, copy buttons, CV download
+4. **Achievements** — GOC Coin, 97 Inf Bde, Commando/Weapons courses, Operation Utoron (unchanged set)
+5. **Journey** — Life timeline. Job milestones are short and link up to the matching Jobs card
+6. **Contacts** — Contact cards, copy buttons, CV download, and a standout link to zabulanakakil.github.io/links
 
 ### Design
 
@@ -100,6 +103,15 @@ $env:GIT_COMMITTER_EMAIL="ZabulanaKakil@users.noreply.github.com"
 ---
 
 ## Session log
+
+### 2026-11-16 — CV content and Jobs section
+
+- Added Jobs directly after Info. Page order is Info, Jobs, Skills, Achievements, Journey, Contacts.
+- Job duties from the CV sit in four structured role cards. Journey job cards stay short and link to those roles.
+- Corrected date of birth display to 14 Sep 1998, marital status to Married – no kids, JSC year 2011, AAB dates March–April 2026, and the Dreamer’s role to one card for June–November 2026.
+- Added the career objective, nationality, gender, Arabic, and the CV competency and computer skills that were missing.
+- Contacts ends the link list with a standout link to zabulanakakil.github.io/links.
+- Service medals were not added as achievement cards.
 
 ### 2026-06-24 — Initial build & deploy
 

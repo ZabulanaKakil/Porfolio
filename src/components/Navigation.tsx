@@ -13,13 +13,13 @@ export function DesktopNav({ activeSection }: NavigationProps) {
         <span className="text-sm font-semibold tracking-wide text-[var(--text)]">
           {navShortName}
         </span>
-        <ul className="flex items-center gap-1">
+        <ul className="flex min-w-0 flex-wrap items-center justify-end gap-0.5">
           {sections.map(({ id, label }) => (
             <li key={id}>
               <button
                 type="button"
                 onClick={() => scrollToSection(id)}
-                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-lg px-2 py-2 text-sm font-medium transition-colors lg:px-3 ${
                   activeSection === id
                     ? 'bg-google-blue/15 text-google-blue'
                     : 'text-[var(--text-muted)] hover:text-[var(--text)]'
@@ -61,7 +61,7 @@ export function MobileNav({ activeSection }: NavigationProps) {
                 type="button"
                 onClick={() => scrollToSection(id)}
                 aria-current={activeSection === id ? 'page' : undefined}
-                className={`flex h-full w-full min-w-0 flex-col items-center justify-center gap-0.5 px-0.5 text-[10px] font-medium transition-colors sm:text-xs ${
+                className={`mobile-nav-btn flex h-full w-full min-w-0 flex-col items-center justify-center gap-0.5 px-0.5 text-[9px] font-medium leading-tight tracking-tight transition-colors min-[400px]:text-[10px] ${
                   activeSection === id
                     ? 'text-google-blue'
                     : 'text-[var(--text-muted)]'
@@ -73,7 +73,7 @@ export function MobileNav({ activeSection }: NavigationProps) {
                   }`}
                   aria-hidden="true"
                 />
-                <span className="truncate">{label}</span>
+                <span className="mobile-nav-label">{label}</span>
               </button>
             </li>
           ))}

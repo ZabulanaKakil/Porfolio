@@ -1,6 +1,6 @@
 export type JourneyCategory = 'life' | 'education' | 'achievement' | 'job' | 'other'
 
-export type SectionId = 'info' | 'journey' | 'skills' | 'achievements' | 'contacts'
+export type SectionId = 'info' | 'jobs' | 'journey' | 'skills' | 'achievements' | 'contacts'
 
 export interface PersonalSpec {
   label: string
@@ -19,6 +19,26 @@ export interface JourneyEvent {
   category: JourneyCategory
   title: string
   detail?: DetailContent
+  jobId?: string
+}
+
+export interface JobDutyGroup {
+  label: string
+  items: readonly string[]
+}
+
+export interface JobBlock {
+  label?: string
+  groups: readonly JobDutyGroup[]
+}
+
+export interface JobRole {
+  id: string
+  organization: string
+  appointment: string
+  location: string
+  dates: string
+  blocks: readonly JobBlock[]
 }
 
 export interface SkillItem {
@@ -82,9 +102,11 @@ export const journeyCategoryOrder: JourneyCategory[] = [
 
 export const portfolio = {
   name: 'Tanvir Nahian Swapnil',
-  lastCorrectedAt: '24 June 2026',
-  title: 'Former Army Officer',
-  tagline: 'Security & ICT Operations Specialist — leadership forged in service, innovation shared in peace.',
+  lastCorrectedAt: '16 November 2026',
+  title: 'General Manager — Operations, Administration, HR & Security',
+  tagline: 'Retired Army Officer, Corps of Signals',
+  careerObjective:
+    'I am pursuing a career in operations, administration, HR, and security and safety, where I can use over 5 years of military leadership experience, 3 years of training, and 8 months in managerial roles to ensure robust safety protocols, efficient under-command management, and strategic operational success.',
   salutation: 'Assalamu Alaikum',
   bioIntro: [
     { text: 'I am Tanvir Nahian Swapnil — a ' },
@@ -93,22 +115,22 @@ export const portfolio = {
     { text: 'Bangladesh Army', highlight: 'service' },
     { text: ', retired with honor from the ' },
     { text: 'Corps of Signals as a Captain', highlight: 'service' },
-    { text: ', and a graduate engineer in ' },
-    { text: 'Computer Science', highlight: 'professional' },
+    { text: ', and a graduate in ' },
+    { text: 'Computer Science Engineering', highlight: 'professional' },
     { text: '. My service from ' },
     { text: '2020 to 2025', highlight: 'service' },
     {
       text: ' was defined by unwavering dedication to national duty, encompassing critical operations such as ',
     },
-    { text: 'electoral security', highlight: 'service' },
+    { text: 'security', highlight: 'service' },
     { text: ', ' },
     { text: 'counter-instability missions', highlight: 'service' },
     { text: ' in the hill tracts, ' },
     { text: 'humanitarian coordination', highlight: 'service' },
     { text: ' during the ' },
-    { text: 'FDMN crisis', highlight: 'service' },
+    { text: 'FDMN crisis and COVID-19', highlight: 'service' },
     { text: ', and response to the ' },
-    { text: 'July Carnage', highlight: 'service' },
+    { text: 'cantonment security during the July 2024 unrest', highlight: 'service' },
     {
       text: '. These experiences forged in me a discipline that transcends uniform — a mindset of ',
     },
@@ -172,7 +194,7 @@ export const portfolio = {
     { text: ' with over ' },
     { text: 'eight years of leadership experience', highlight: 'professional' },
     {
-      text: ', I have managed and safeguarded personnel, infrastructure, and data in high-pressure environments. My portfolio reflects this journey — each branch a testament to the ',
+      text: ', I have managed and safeguarded under-command, infrastructure, and data in high-pressure environments. My portfolio reflects this journey — each branch a testament to the ',
     },
     { text: 'life', highlight: 'professional' },
     { text: " I've lived, the " },
@@ -187,14 +209,16 @@ export const portfolio = {
   },
   personal: {
     serviceId: 'BA-10481',
-    dob: '14 Sep 1997',
+    dob: '14 Sep 1998',
+    nationality: 'Bangladeshi',
+    gender: 'Male',
     location: 'Dhaka, Bangladesh',
     height: "5'8\"",
     weight: '62 kg',
     bloodGroup: 'O+ve',
     religion: 'Islam',
     sibling: '1 Sister : Sumaiya Tahrin Srijony (Married)',
-    maritalStatus: 'Married',
+    maritalStatus: 'Married – no kids',
     educationalBackground: 'Science',
     parents: {
       father: 'Md. Abu Sufian',
@@ -203,7 +227,7 @@ export const portfolio = {
     birthPlace: 'P.G. Hospital, Dhaka',
     nameOrigin:
       'Tanvir from Tahmina, Nahian from Sufian, and Swapnil chosen by my grandfather with my mother\'s agreement. My paternal grandfather used to call me Billu.',
-    hobbies: ['Web Development', 'Web Surfing', 'Freelancing'],
+    hobbies: ['Web Development', 'Web Surfing', 'Content Creation'],
   },
   education: [
     {
@@ -211,7 +235,7 @@ export const portfolio = {
       location: 'Mirpur, Dhaka',
       degree: 'BSc in Computer Science and Engineering',
       result: 'CGPA 3.39',
-      year: '2023',
+      year: '2022',
     },
     {
       institution: 'Signal Training School and Center',
@@ -236,13 +260,22 @@ export const portfolio = {
     },
   ],
   skillHighlights: [
-    'Administration And HR',
-    'ICT specialist',
-    'Security Specialist',
+    'Under-command Administration',
+    'HR Operations Management',
+    'Safety Protocol Implementation',
+    'Disciplinary Action Management',
+    'Strategic Event Coordination',
+    'Resource and Logistics Management',
+    'Risk Assessment and Mitigation',
+    'Regulatory Compliance',
+    'Crisis and Emergency Response',
+    'Cybersecurity & Cyber Auditing',
+    'ICT Network Infrastructure',
+    'Surveillance Systems (CCTV)',
     'Strategic Operations Planning',
     'Leadership',
     'Microsoft Office Suite',
-    'Basic Coding',
+    'Basic Coding (Java, C++, Web Stack)',
     'Web Development & Online Portals',
   ],
   skillCategories: [
@@ -281,7 +314,7 @@ export const portfolio = {
           name: 'MS PowerPoint',
           rating: 4.8,
           detail:
-            'I have practiced PowerPoint since before my career and have mastered it professionally. I can create presentations in unique styles quickly. I have made presentations for Army Project Study, Jolshiri Housing Limited, Dhaka Ladies Club, Divisional Operation Plan, Chittagong Hill Tracts Special Operations Plan, and many classified unit presentations.',
+            'I have practiced PowerPoint since before my career and have mastered it professionally. I can create presentations in a distinct style quickly, for studies, operational plans, formal briefs, and organizational profiles.',
         },
         {
           name: 'Canva',
@@ -299,7 +332,25 @@ export const portfolio = {
           name: 'MS Excel',
           rating: 4.3,
           detail:
-            'I manage and analyze data efficiently using Excel\'s advanced features. I created a whole information table of my company\'s soldiers who were present in the unit. Based on variables like leave, posting, and attachments, I automated the total number of present soldiers — highly praised by my seniors. I use macros and charts to make data more appealing.',
+            'I manage and analyze data with Excel, including tables, macros, and charts. I can build a tracker that calculates who is present from leave, posting, and attachment records.',
+        },
+        {
+          name: 'Google Docs, Slides & Sheets',
+          rating: 4.0,
+          detail:
+            'I use Google Docs, Slides, and Sheets for shared documents, presentations, and spreadsheets when a team needs to work in the browser.',
+        },
+        {
+          name: 'Google Earth',
+          rating: 3.5,
+          detail:
+            'I use Google Earth to study ground, routes, and sites before planning movement, coverage, or a project visit.',
+        },
+        {
+          name: 'AI-assisted Work',
+          rating: 4.0,
+          detail:
+            'I use artificial and super-intelligence tools for practical office work: checking schedules, filtering information, drafting, and organizing records.',
         },
       ],
     },
@@ -307,10 +358,10 @@ export const portfolio = {
       category: 'Security & Operations',
       items: [
         {
-          name: 'CCTV Planner',
+          name: 'CCTV Planning & Installation',
           rating: 4.5,
           detail:
-            'CCTV is the most common security system for any institution. I completed a CCTV course during my career, making me proficient in handling CCTV-related problems. As an engineer and field officer, I think from the intruder\'s perspective first — finding flaws before fixing them with additional measures like CCTV coverage.',
+            'CCTV is the most common security system for any institution. I completed a CCTV course during my career and can plan coverage and install systems, as well as handle CCTV-related problems. As an engineer and field officer, I think from the intruder\'s perspective first — finding flaws before fixing them with additional measures like CCTV coverage.',
         },
         {
           name: 'Emergency Security Operations Planner',
@@ -361,6 +412,16 @@ export const portfolio = {
           detail:
             'As someone from Bangladesh\'s rich cultural heritage, I participate in cultural activities whenever I can. I have no stage fear thanks to countless performances. Skills include drama, acting, and singing in chorus or solo.',
         },
+        {
+          name: 'Driving',
+          rating: 3.0,
+          detail: 'I drive a 4-wheeler. I do not hold a driving license yet.',
+        },
+        {
+          name: 'Sports',
+          rating: 3.5,
+          detail: 'I play football, cricket, and badminton.',
+        },
       ],
     },
     {
@@ -389,7 +450,13 @@ export const portfolio = {
           rating: 3.0,
           detail:
             'Basic proficiency in Urdu for conversational purposes. I can listen and understand Urdu most of the time, though conversation with a fluent speaker will be a bit slow.',
-        },{
+        },
+        {
+          name: 'Arabic',
+          rating: 2.0,
+          detail: 'I can read Arabic.',
+        },
+        {
           name: 'French',
           rating: 1.0,
           detail:
@@ -467,7 +534,7 @@ export const portfolio = {
       ],
     },
     {
-      year: '2012',
+      year: '2011',
       category: 'education',
       title: 'Junior School Certificate - 4.86 GPA',
       detail: [
@@ -475,7 +542,9 @@ export const portfolio = {
         { text: 'Junior School Certificate', highlight: true },
         { text: ' with ' },
         { text: 'GPA 4.86', highlight: true },
-        { text: ' from Ideal School and College.' },
+        { text: ' from Ideal School and College in ' },
+        { text: '2011', highlight: true },
+        { text: '.' },
       ],
     },
     {
@@ -566,12 +635,17 @@ export const portfolio = {
       year: '2020',
       category: 'job',
       title: '11 Signal Battalion',
+      jobId: 'sig11',
       detail: [
         { text: 'Joined ' },
         { text: '11 Signal Battalion', highlight: true },
-        { text: ' as ' },
-        { text: '37th Parent Officer', highlight: true },
-        { text: '. started regementation under learned officers and mixed up with soldiers.' },
+        { text: ' in ' },
+        { text: 'Dhaka Cantonment', highlight: true },
+        { text: ' and served as ' },
+        { text: 'Battalion Adjutant', highlight: true },
+        { text: ' and later as ' },
+        { text: 'Company/Platoon Commander', highlight: true },
+        { text: ' until August 2024.' },
       ],
     },
     { year: '2020', category: 'education', title: 'Joined MIST in Dhaka' },
@@ -657,7 +731,19 @@ export const portfolio = {
         { text: ' after completing BSc.' },
       ],
     },
-    { year: '2022', category: 'job', title: 'Returned to 11 Signal Battalion' },
+    {
+      year: '2022',
+      category: 'job',
+      title: 'Returned to 11 Signal Battalion',
+      jobId: 'sig11',
+      detail: [
+        { text: 'Returned to ' },
+        { text: '11 Signal Battalion', highlight: true },
+        { text: ' in ' },
+        { text: 'Dhaka Cantonment', highlight: true },
+        { text: ' after graduating from MIST.' },
+      ],
+    },
     {
       year: '2022',
       category: 'achievement',
@@ -782,42 +868,45 @@ export const portfolio = {
       year: '2024',
       category: 'job',
       title: 'Posting to 7 Signal Battalion',
+      jobId: 'sig7',
       detail: [
-        { text: 'I was posted to ' },
-        { text: '7 Signal Battalion', highlight: true },
-        { text: ' from my parent unit ' },
+        { text: 'Posted from ' },
         { text: '11 Signal Battalion', highlight: true },
-        { text: '. I was very sad to be posted to a new unit but happy to work with new people.' },
+        { text: ' to ' },
+        { text: '7 Signal Battalion', highlight: true },
+        { text: ' at ' },
+        { text: 'Ramu, Cox\'s Bazar', highlight: true },
+        { text: ', and served as ' },
+        { text: 'Company Commander, 112 Brigade Signal Company', highlight: true },
+        { text: '.' },
       ],
     },
     {
       year: '2024',
       category: 'job',
       title: 'Hill Tracts Deployment',
+      jobId: 'sig7',
       detail: [
-        { text: 'Commanded ' },
-        { text: '70 personnel', highlight: true },
-        { text: ' during ' },
-        { text: 'Operation Utoron', highlight: true },
-        { text: ' in ' },
+        { text: 'Deployed to ' },
         { text: 'Bandarban, Chittagong Hill Tracts', highlight: true },
-        { text: '. Served as ' },
-        { text: 'cybersecurity advisor', highlight: true },
-        { text: ' during sensitive operations, led activities in Bandorban hilly regions, and participated in tactical planning against ' },
-        { text: 'Kuki-Chin National Army', highlight: true },
-        { text: ' threats.' },
+        { text: ' during ' },
+        { text: 'Operation Uttoron', highlight: true },
+        { text: ' as Company Commander, with duty as a staff member of ' },
+        { text: '97 Infantry Brigade', highlight: true },
+        { text: '.' },
       ],
     },
     {
       year: '2025',
       category: 'job',
       title: 'Back to 7 Signal Battalion in Ramu',
+      jobId: 'sig7',
       detail: [
-        { text: 'After serving in ' },
-        { text: 'Ruma, Bandorbans', highlight: true },
-        { text: ', I came back to ' },
+        { text: 'Returned from ' },
+        { text: 'Ruma, Bandarban', highlight: true },
+        { text: ' to ' },
         { text: 'Ramu, Cox\'s Bazar', highlight: true },
-        { text: '. I was very happy to be back in my unit from such a dangeros area.' },
+        { text: ' and continued as Company Commander until June 2025.' },
       ],
     },
     {
@@ -847,103 +936,306 @@ export const portfolio = {
       ],
     },
     {
-year: '2026',
-category: 'job',
-title: 'Started in Automobile Association of Bangladesh as DGM',
-detail: [
-{ text: 'Started working as ' },
-{ text: 'Deputy General Manager', highlight: true },
-{ text: ' in ' },
-{ text: 'Automobile Association of Bangladesh', highlight: true },
-{ text: '. First job after leaving the army.' },
-{ text: 'Led membership growth and retention.' },
-{ text: 'Built a professional, standards-driven security function.' },
-{ text: 'Established processes to improve staff readiness and compliance.' },
-{ text: 'Managed duty rosters, shifts, and team deployments.' },
-{ text: 'Designed and delivered security training programs.' },
-{ text: 'Launched an online membership subscription portal.' },
-{ text: 'Tracked KPIs and prepared operational reports.' },
-{ text: 'Sustained subscriptions through targeted outreach.' },
-{ text: 'Implemented incident reporting and rapid response.' },
-{ text: 'Supervised CCTV, access control, and vendor security.' },
-{ text: 'Served as point of contact for vendors and partners.' },
-{ text: 'Assisted budgeting for security and membership initiatives.' },
-{ text: 'Key achievements: launched portal, built trained security team, maintained steady subscriptions.' },
-{ text: 'Job Duration: ' },
-{ text: 'April to May 2026', highlight: true },
-{ text: '.' }
-]
-},
+      year: '2026',
+      category: 'job',
+      title: 'Automobile Association of Bangladesh',
+      jobId: 'aab',
+      detail: [
+        { text: 'Deputy General Manager', highlight: true },
+        { text: ' for Membership, Security Services and Issuance at ' },
+        { text: '3B, Moghbazar, Dhaka', highlight: true },
+        { text: '. ' },
+        { text: 'March–April 2026', highlight: true },
+        { text: '.' },
+      ],
+    },
     {
-  year: '2026',
-  category: 'job',
-  title: "Started in Dreamer's Den as GM",
-  detail: [
-    { text: 'Started working as ' },
-    { text: 'General Manager', highlight: true },
-    { text: ' in ' },
-    { text: "Dreamer's Den", highlight: true },
-    { text: '. Job Duration: ' },
-    { text: 'June 2026 to present', highlight: true },
-    { text: '.' },
-    { text: 'Based in Dhaka, Bangladesh.' },
-    { text: 'Full-time role.' },
-    { text: 'Oversee members and business sectors.' },
-    { text: 'Manage operations from product sourcing to delivery.' },
-    { text: 'Lead strategic planning and business development.' },
-    { text: 'Handle administration across company functions.' },
-    { text: 'Act as HR representative and foster workplace culture.' },
-    { text: 'Maintain financial accountability and compliance.' },
-    { text: 'Lead projects from initiation to completion.' },
-    { text: 'Create new business opportunities.' },
-    { text: 'Develop and implement marketing strategies.' },
-    { text: 'Expand reach via digital and traditional channels.' },
-    { text: 'Build liaisons with principals, partners, and customers.' },
-    { text: 'Manage and grow online platforms and social media.' },
-    { text: 'Focus on efficiency, innovation, and customer satisfaction.' }
-  ]
-},{
-year: '2026',
-category: 'job',
-title: "Started in Sweet Dream Agro Farm as GM",
-detail: [
-{ text: 'Started working as ' },
-{ text: 'General Manager', highlight: true },
-{ text: ' in ' },
-{ text: "Sweet Dream Agro Farm", highlight: true },
-{ text: '. Job Duration: ' },
-{ text: 'June 2026 to present', highlight: true },
-{ text: '.' },
-{ text: 'Based in Dhaka, Bangladesh.' },
-{ text: 'Full-time; remote.' },
-{ text: 'Oversee end-to-end farm operations.' },
-{ text: 'Drive sales and manage distributor relationships.' },
-{ text: 'Plan crop cycles and supervise field operations.' },
-{ text: 'Supervise quality control and harvest scheduling.' },
-{ text: 'Lead marketing and run digital campaigns.' },
-{ text: 'Manage invoicing, receivables, and payables.' },
-{ text: 'Maintain and update the farm website.' },
-{ text: 'Supervise staff and seasonal workers.' },
-{ text: 'Negotiate with suppliers and handle customer orders.' },
-{ text: 'Key achievements: reduced post-harvest losses; increased online orders; improved cash-flow controls.' }
-]
-},{
-year: '2026',
-category: 'life',
-title: "Got Married !",
-detail: [
-{ text: 'Got Happily Married to ' },
-{ text: 'Tasnia Akter Ety', highlight: true },
-{ text: ' on ' },
-{ text: "21st August", highlight: true },
-{ text: 'Alhamdulillah, with all the ongoing pressures in the current month, I was finally able to get this nice achievement of my life.' },
-{ text: 'Thanks to my beautiful and supportive wife, I can focus more on my work and progress further.' },
-]
-},
-    
-    
+      year: '2026',
+      category: 'job',
+      title: "General Manager, Dreamer's companies",
+      jobId: 'dreamers',
+      detail: [
+        { text: 'General Manager', highlight: true },
+        { text: ' of ' },
+        { text: "Dreamer's Den, Dreamer's Construction, and Sweet Dream Agro Farm", highlight: true },
+        { text: ' at ' },
+        { text: 'Mirpur DOHS, Dhaka', highlight: true },
+        { text: '. ' },
+        { text: 'June–November 2026', highlight: true },
+        { text: '.' },
+      ],
+    },
+    {
+      year: '2026',
+      category: 'life',
+      title: 'Got Married',
+      detail: [
+        { text: 'Got happily married to ' },
+        { text: 'Tasnia Akter Ety', highlight: true },
+        { text: ' on ' },
+        { text: '21st August', highlight: true },
+        { text: '. Alhamdulillah, with all the ongoing pressures in the current month, I was finally able to get this nice achievement of my life. Thanks to my beautiful and supportive wife, I can focus more on my work and progress further.' },
+      ],
+    },
 
   ] satisfies JourneyEvent[],
+  jobs: [
+    {
+      id: 'dreamers',
+      organization: "Dreamer's Den, Dreamer's Construction & Sweet Dream Agro Farm",
+      appointment: 'General Manager',
+      location: 'Mirpur DOHS, Dhaka',
+      dates: 'June 2026 – November 2026',
+      blocks: [
+        {
+          groups: [
+            {
+              label: 'Management and Admin & HR',
+              items: [
+                'Managed the team of all three companies by coordinating tasks, overseeing progress, and controlling the outcome.',
+                'Managed work distribution for employees, along with leave and personal requirements.',
+                'Created and implemented a chain of command for all three companies.',
+                'Coordinated foreign partners’ visit programs and schedules for investment and expansion.',
+                'Coordinated project and site supervisors in different areas of Bangladesh.',
+                'Acted as HR manager and recruited and managed the companies’ human resources.',
+              ],
+            },
+            {
+              label: 'Business Management',
+              items: [
+                'Oversaw tender search and submission, from coordinating with tender floaters and collecting supplier quotes through delivery and bills.',
+                'Coordinated business expansion from the Bangladesh Army to the Bangladesh Navy, the Army Aviation Group, and other organizations.',
+                'Coordinated agro project expansion in Jolshiri, Dhaka, and the Rangpur farm.',
+                'Supervised the CMTD MT shed from start through handover.',
+                'Attended general and coordination meetings to expand business, especially supply.',
+                'Pursued new customers for future supply-chain work.',
+                'Pursued foreign sources to act as OEM and principals for Dreamer’s Den as a local agent.',
+                'Built relationships with foreign principals, partners, and customers as the company point of contact.',
+                'Ran digital marketing, social media, and online platforms.',
+                'Handled invoicing, receivables, and payables, and kept the finances accountable and compliant.',
+              ],
+            },
+            {
+              label: 'IT and Automation',
+              items: [
+                'Created the official websites and online portfolios for Dreamer’s Den Event Management and Dreamer’s Construction, with achievements and catalogues.',
+                'Created the official website and shopping page for Sweet Dream Agro Farm.',
+                'Created the official portfolio for Dreamer’s Den Landscaping and Plantation.',
+                'Supervised the physical profile portfolios for Dreamer’s Den Event Management and Dreamer’s Construction.',
+                'Supervised the portfolio and website for Dreamer’s Den Parts Supply, for foreign partners and local agents.',
+                'Automated tender-schedule checking and filtering, and coordinated with the ERP for quotations.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'aab',
+      organization: 'Automobile Association of Bangladesh',
+      appointment: 'Deputy General Manager — Membership, Security Services and Issuance',
+      location: '3B, Moghbazar, Dhaka',
+      dates: 'March 2026 – April 2026',
+      blocks: [
+        {
+          groups: [
+            {
+              label: 'Management',
+              items: [
+                'Managed the membership operations team, serving hundreds of customers daily.',
+                'Created and implemented tiered membership benefit matrices, aligned with FIA benchmarks and the local context.',
+                'Oversaw issuance management, with error-free documentation, compliance, and timely delivery of member services.',
+                'Coordinated the launch of the NRB Membership program for members abroad and their families in Bangladesh.',
+                'Launched the website for online services and membership, especially for non-resident Bangladeshis.',
+                'Drafted organizational communications, announcements, and milestone campaigns for 2,300+ members nationwide.',
+                'Benchmarked insurance packages and negotiated collaborations that expanded member coverage.',
+                'Supervised the call center and digital support teams and improved response times.',
+                'Tracked KPIs and prepared operational reports for management.',
+                'Kept subscriptions steady through targeted outreach and retention campaigns.',
+              ],
+            },
+            {
+              label: 'Security',
+              items: [
+                'Directed the Security Services division, including insurance collaborations and member protection.',
+                'Built and trained the in-house security team, and designed and delivered its security training.',
+                'Supervised CCTV, access control, and vendor security.',
+                'Set up incident reporting with rapid response.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'sig7',
+      organization: '7 Signal Battalion, Bangladesh Army',
+      appointment: 'Company Commander — 112 Brigade Signal Company',
+      location: 'Ramu, Cox’s Bazar',
+      dates: 'August 2024 – June 2025',
+      blocks: [
+        {
+          label: 'Hill Tracts — Bandarban',
+          groups: [
+            {
+              label: 'Operation',
+              items: [
+                'Commanded over 500 under-command in counter-insurgency operations in the hills of Bandarban during Operation Uttoron 2024/25.',
+                'Conducted tactical planning against Kuki-Chin National Army threats as a staff member of 97 Infantry Brigade.',
+                'Prepared and managed operational budgets and resource allocation for patrols and camps in the Chittagong Hill Tracts.',
+                'Conducted regular inspections of signal communication across difficult hill terrain.',
+                'Built presentations for the Chittagong Hill Tracts Special Operations Plan.',
+              ],
+            },
+            {
+              label: 'Security',
+              items: [
+                'Conducted risk assessments for operations in the hostile environment of the Chittagong Hill Tracts.',
+                'Maintained the security of paperwork while managing daily reports and returns.',
+                'Designed secure ICT networks for field communication during counter-insurgency operations.',
+                'Served as cybersecurity advisor for sensitive hill-tract operations during and after operational events.',
+              ],
+            },
+            {
+              label: 'Administration & HR',
+              items: [
+                'Planned and executed the company’s permanent relocation to Cox’s Bazar, including its installations, with zero incidents.',
+                'Managed accommodation, leave, and deployment of under-command in remote camps.',
+                'Maintained high morale and discipline across camps in the hills.',
+                'Managed rations for troops in remote camps.',
+                'Managed vehicle movement in and out of camps and headquarters.',
+                'Visited camps periodically to check on troops and their conditions.',
+                'Maintained almost 100% under-command readiness through leave and duty planning.',
+              ],
+            },
+          ],
+        },
+        {
+          label: 'Cox’s Bazar',
+          groups: [
+            {
+              label: 'Operation',
+              items: [
+                'Participated in planning and preparing a new operational plan for 10 Infantry Division at Ramu Cantonment.',
+                'Participated in incorporating the 97 Infantry Brigade operational plan into the 10 Infantry Division plan.',
+                'Cleared to work on the classified operational planning for 10 Infantry Division.',
+                'Took part in Operation Purbo Prachir in Cox’s Bazar.',
+                'Built presentations for the divisional operation plan, officers’ OPR review, and divisional briefs.',
+              ],
+            },
+            {
+              label: 'Security',
+              items: [
+                'Ensured strict compliance with security protocols during deployment.',
+                'Remained aware of under-command and their duties at post and in accommodation.',
+              ],
+            },
+            {
+              label: 'Administration & HR',
+              items: [
+                'Maintained high morale and discipline.',
+                'Maintained accounts and funds.',
+                'Planned and hosted the Freedom Fighters’ visit to Cox’s Bazar, and executed the visit logistics.',
+                'Managed accommodation, leave, and deployment of company under-command.',
+                'Managed rations for all troops, including those on attachment.',
+                'Managed company paperwork and documentation.',
+                'Inspected accommodation and the nearby area for cleanliness and hygiene.',
+                'Built an Excel tracker that calculated present strength from leave, posting, and attachment data.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'sig11',
+      organization: '11 Signal Battalion, Bangladesh Army',
+      appointment: 'Battalion Adjutant, then Company/Platoon Commander',
+      location: 'Dhaka Cantonment, Dhaka',
+      dates: 'January 2020 – August 2024',
+      blocks: [
+        {
+          label: 'Battalion Adjutant',
+          groups: [
+            {
+              label: 'Operation',
+              items: [
+                'Supervised administration and operations for over 500 soldiers at the same time.',
+                'Took part in summer and winter training exercises as adjutant and as patrol commander.',
+                'Took part in emergency drills, including fire and earthquake, as executive commander, and in rapid-action patrols as patrol commander.',
+                'Represented 86 Independent Signal Brigade in the Inter-Divisional Firing Competition as team captain and best firer.',
+                'Led content for the 86 Independent Signal Brigade Army Project Study. The Brigade Commander raised my Officers’ Personal Record marks by 2 for that work.',
+                'Built presentations for the Army Project Study, Jolshiri Housing, and the Dhaka Ladies Club.',
+                'Received formal recognition for PowerPoint design on an operational presentation.',
+              ],
+            },
+            {
+              label: 'Administration & HR',
+              items: [
+                'Managed accommodation, leave, and duty rosters.',
+                'Enforced military discipline and the code of conduct.',
+                'Oversaw daily office management and the clerks’ record-keeping.',
+                'Implemented welfare and grievance handling for all under-command.',
+                'Conducted regular inspections to keep the unit ready.',
+                'Prepared and presented administrative reports to senior leaders.',
+                'Facilitated training and professional development for subordinates.',
+                'Managed resource allocation for administrative and security needs.',
+                'Balanced the workload by managing how troops were distributed inside and outside the unit.',
+                'Followed official written laws, rules, and regulations in every matter.',
+                'Coordinated everyday vehicle movement inside and outside the unit and cantonment.',
+                'Maintained the unit’s funds and accounts.',
+                'Planned each day’s activities and published them the day before.',
+                'Kept account of individual performance.',
+                'Resolved complex disciplinary cases fairly while looking after the welfare of 500+ soldiers.',
+              ],
+            },
+            {
+              label: 'Security',
+              items: [
+                'Ensured compliance with security protocols during deployment.',
+                'Remained aware of under-command and their duties at post and in accommodation.',
+                'Maintained confidential records and documentation securely.',
+              ],
+            },
+          ],
+        },
+        {
+          label: 'Company/Platoon Commander',
+          groups: [
+            {
+              label: 'Operation',
+              items: [
+                'Supervised and planned operations with over 500 soldiers over time.',
+                'Planned and led the COVID-19 public awareness campaign across Dhaka North in 2020.',
+                'Took part in cantonment defense during the July 2024 unrest.',
+                'Led patrols aiding the civil administration around Dhaka Cantonment during August 2024.',
+                'Coordinated and executed the inauguration program of Sena Prangan.',
+                'Designed and ran a hostage-rescue training exercise to test troop readiness.',
+              ],
+            },
+            {
+              label: 'Administration & HR',
+              items: [
+                'Maintained accountability of individual duties, leave status, and distribution.',
+                'Planned leave, accommodation, and deployment so the load stayed balanced.',
+                'Oversaw the daily correspondence of the company and platoon.',
+              ],
+            },
+            {
+              label: 'Security',
+              items: [
+                'Coordinated security and surveillance for National Armed Forces Day at Sena Kunja in 2022 and 2023.',
+                'Acted as Security and Surveillance Officer for Boshonto Boron in 2023 and 2024, including the Army-level event.',
+                'Coordinated security, surveillance, and media coverage for the 2nd Bangladesh Youth Games in 2024.',
+                'Coordinated surveillance, security, and administrative coverage for the inauguration of Sena Prangan in 2024.',
+                'Ensured compliance with security protocols for activities inside and outside the cantonment.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ] satisfies JobRole[],
   achievements: [
     {
       title: "GOC's Coin of Excellence",
@@ -978,7 +1270,7 @@ detail: [
       date: '2024',
       category: 'Operations',
       description:
-        'Commanded 70 personnel during Operation Utoron in Bandarban, Chittagong Hill Tracts. Designed secure ICT networks and served as cybersecurity advisor in remote operational areas.',
+        'Commanded over 500 under-command during Operation Uttoron in Bandarban, Chittagong Hill Tracts. Designed secure ICT networks and served as cybersecurity advisor in remote operational areas.',
     },
   ] satisfies Achievement[],
   contacts: {
@@ -986,7 +1278,9 @@ detail: [
     phones: ['+8801790136979', '+8801608892998'],
     whatsapp: '+8801790136979',
     location: 'Dhaka, Bangladesh',
-    cvUrl: 'https://tanvirnahian.gt.tc/mycv.pdf',
+    cvUrl: `${import.meta.env.BASE_URL}Tanvir%20Nahian%20Swapnil%20CV%20Nov%202026.pdf`,
+    allLinksHref: 'https://zabulanakakil.github.io/links',
+    allLinksLabel: 'zabulanakakil.github.io/links',
     links: [
       {
         label: 'Email',
@@ -1076,6 +1370,8 @@ detail: [
 
 export const personalSpecs: PersonalSpec[] = [
   { label: 'Full Name', value: portfolio.name },
+  { label: 'Nationality', value: portfolio.personal.nationality },
+  { label: 'Gender', value: portfolio.personal.gender },
   { label: 'Date of Birth', value: portfolio.personal.dob },
   { label: 'Height', value: portfolio.personal.height },
   { label: 'Weight', value: portfolio.personal.weight },
@@ -1088,9 +1384,9 @@ export const personalSpecs: PersonalSpec[] = [
   { label: 'Educational Background', value: portfolio.personal.educationalBackground },
   {
     label: 'Education',
-    value: 'SSC GPA 5.00 · HSC GPA 5.00 · BSc CSE CGPA 3.39',
+    value: 'JSC GPA 4.86 · SSC GPA 5.00 · HSC GPA 5.00 · BSc CSE CGPA 3.39',
   },
-  { label: 'Languages', value: 'Bangla, English, Hindi, Urdu' },
+  { label: 'Languages', value: 'Bangla, English, Hindi, Urdu, Arabic' },
   { label: 'Hobbies', value: portfolio.personal.hobbies.join(', ') },
 ]
 
@@ -1098,8 +1394,9 @@ export const navShortName = 'Tanvir Nahian'
 
 export const sections: { id: SectionId; label: string }[] = [
   { id: 'info', label: 'Info' },
-  { id: 'journey', label: 'Journey' },
+  { id: 'jobs', label: 'Jobs' },
   { id: 'skills', label: 'Skills' },
   { id: 'achievements', label: 'Achievements' },
+  { id: 'journey', label: 'Journey' },
   { id: 'contacts', label: 'Contacts' },
 ]

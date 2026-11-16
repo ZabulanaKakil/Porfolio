@@ -178,6 +178,24 @@ export function JourneySection() {
             ) : (
               <p className="journey-detail-text">No additional details recorded for this milestone.</p>
             )}
+            {selected.jobId && (
+              <button
+                type="button"
+                className="journey-role-link"
+                onClick={() => {
+                  const jobId = selected.jobId
+                  setSelected(null)
+                  window.setTimeout(() => {
+                    document.getElementById(`job-${jobId}`)?.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'start',
+                    })
+                  }, 50)
+                }}
+              >
+                View this role
+              </button>
+            )}
           </>
         )}
       </DetailModal>
