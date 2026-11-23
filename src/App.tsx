@@ -7,6 +7,7 @@ import { SkillsSection } from './sections/SkillsSection'
 import { AchievementsSection } from './sections/AchievementsSection'
 import { JourneySection } from './sections/JourneySection'
 import { ContactsSection } from './sections/ContactsSection'
+import { ProfileRail } from './components/ProfileRail'
 
 const sectionIds = sections.map((s) => s.id)
 
@@ -17,6 +18,7 @@ function App() {
     <>
       <DesktopNav activeSection={activeSection} />
       <MobileNav activeSection={activeSection} />
+      <ProfileRail />
       <main className="mobile-main relative z-10 min-w-0 overflow-x-clip md:overflow-x-visible md:pt-16">
         <InfoSection />
         <JobsSection />

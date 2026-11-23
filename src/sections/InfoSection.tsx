@@ -48,13 +48,12 @@ export function InfoSection() {
                 {portfolio.name}
               </h1>
               <hr className="hero-name-divider" aria-hidden="true" />
-              <p className="hero-title-badge">General Manager</p>
-              <p className="hero-retired-line">
-                <span className="hero-retired-rule" aria-hidden="true" />
-                <span>{portfolio.tagline}</span>
-                <span className="hero-retired-rule" aria-hidden="true" />
-              </p>
-              <p className="hero-title-badge">Operations, Administration, HR &amp; Security</p>
+              <blockquote className="hero-quote">
+                {portfolio.quote.lines.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+                <footer>— {portfolio.quote.author}</footer>
+              </blockquote>
             </div>
           </div>
 
@@ -126,10 +125,6 @@ export function InfoSection() {
             ))}
           </div>
 
-          <blockquote className="hero-quote mt-8 italic text-theme-muted">
-            <p className="text-sm leading-relaxed">&ldquo;{portfolio.quote.text}&rdquo;</p>
-            <footer className="mt-2 text-xs not-italic">— {portfolio.quote.author}</footer>
-          </blockquote>
         </div>
       </SectionWrapper>
     </>

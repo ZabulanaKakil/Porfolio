@@ -103,18 +103,16 @@ export const journeyCategoryOrder: JourneyCategory[] = [
 export const portfolio = {
   name: 'Tanvir Nahian Swapnil',
   lastCorrectedAt: '16 November 2026',
-  title: 'General Manager — Operations, Administration, HR & Security',
-  tagline: 'Retired Army Officer, Corps of Signals',
+  title: 'Tanvir Nahian Swapnil',
+  tagline: '',
   careerObjective:
     'I am pursuing a career in operations, administration, HR, and security and safety, where I can use over 5 years of military leadership experience, 3 years of training, and 8 months in managerial roles to ensure robust safety protocols, efficient under-command management, and strategic operational success.',
   salutation: 'Assalamu Alaikum',
   bioIntro: [
-    { text: 'I am Tanvir Nahian Swapnil — a ' },
-    { text: 'commissioned officer', highlight: 'service' },
-    { text: ' of the ' },
+    { text: 'I am Tanvir Nahian Swapnil, retired with honor from the ' },
     { text: 'Bangladesh Army', highlight: 'service' },
-    { text: ', retired with honor from the ' },
-    { text: 'Corps of Signals as a Captain', highlight: 'service' },
+    { text: ', ' },
+    { text: 'Corps of Signals', highlight: 'service' },
     { text: ', and a graduate in ' },
     { text: 'Computer Science Engineering', highlight: 'professional' },
     { text: '. My service from ' },
@@ -189,9 +187,9 @@ export const portfolio = {
     { text: 'clean architecture', highlight: 'professional' },
     { text: ' and ' },
     { text: 'intuitive design', highlight: 'professional' },
-    { text: '. As a ' },
-    { text: 'Security & ICT Operations Specialist', highlight: 'professional' },
-    { text: ' with over ' },
+    { text: '. In ' },
+    { text: 'security and ICT operations', highlight: 'professional' },
+    { text: ', with over ' },
     { text: 'eight years of leadership experience', highlight: 'professional' },
     {
       text: ', I have managed and safeguarded under-command, infrastructure, and data in high-pressure environments. My portfolio reflects this journey — each branch a testament to the ',
@@ -204,7 +202,12 @@ export const portfolio = {
     { text: ' I carry forward.' },
   ] satisfies BioParagraph,
   quote: {
-    text: 'All that is gold does not glitter, Not all those who wander are lost; The old that is strong does not wither, Deep roots are not reached by the frost.',
+    lines: [
+      'All that is gold does not glitter,',
+      'Not all those who wander are lost;',
+      'The old that is strong does not wither,',
+      'Deep roots are not reached by the frost.',
+    ],
     author: 'J.R.R. Tolkien',
   },
   personal: {
@@ -376,10 +379,10 @@ export const portfolio = {
       category: 'Management and Administration',
       items: [
         {
-          name: 'Administrative Manager',
+          name: 'Administration',
           rating: 4.3,
           detail:
-            'I served as adjutant for most of my military career — the most active administrative appointment in a unit. This taught me troops\' psychology and their way of doing tasks. I always found the right person for any task, or personally guided them to ensure smooth results while keeping resources organized to complete administrative work with minimal intervention from authorities.',
+            'Administration was the centre of my military career. This taught me how people take on a task. I always found the right person for any task, or personally guided them to ensure smooth results while keeping resources organized to complete the work with minimal intervention from authorities.',
           tools: ['Scheduling', 'Resource Allocation', 'Reporting'],
         },
         {
@@ -618,11 +621,9 @@ export const portfolio = {
     {
       year: '2019',
       category: 'job',
-      title: 'Commissioned as Army Officer - 29th December',
+      title: 'Commissioned — 29th December',
       detail: [
-        { text: 'Commissioned as ' },
-        { text: 'Army Officer', highlight: true },
-        { text: ' in the ' },
+        { text: 'Commissioned in the ' },
         { text: 'Corps of Signals', highlight: true },
         { text: ' on ' },
         { text: '29th December 2019', highlight: true },
@@ -641,11 +642,7 @@ export const portfolio = {
         { text: '11 Signal Battalion', highlight: true },
         { text: ' in ' },
         { text: 'Dhaka Cantonment', highlight: true },
-        { text: ' and served as ' },
-        { text: 'Battalion Adjutant', highlight: true },
-        { text: ' and later as ' },
-        { text: 'Company/Platoon Commander', highlight: true },
-        { text: ' until August 2024.' },
+        { text: ' and served there until August 2024.' },
       ],
     },
     { year: '2020', category: 'education', title: 'Joined MIST in Dhaka' },
@@ -698,11 +695,9 @@ export const portfolio = {
     {
       year: '2022',
       category: 'job',
-      title: 'Promoted to Captain',
+      title: 'Promotion',
       detail: [
-        { text: 'Promoted to ' },
-        { text: 'Captain', highlight: true },
-        { text: ' on ' },
+        { text: 'Promoted on ' },
         { text: '7th March 2022', highlight: true },
         { text: '.I was so happy with this achievement.' },
       ],
@@ -833,7 +828,7 @@ export const portfolio = {
     {
       year: '2024',
       category: 'job',
-      title: 'Inter Divisional Firing Competition — Team Captain',
+      title: 'Inter Divisional Firing Competition',
       detail: [
         { text: 'I was the ' },
         { text: 'team captain', highlight: true },
@@ -876,8 +871,8 @@ export const portfolio = {
         { text: '7 Signal Battalion', highlight: true },
         { text: ' at ' },
         { text: 'Ramu, Cox\'s Bazar', highlight: true },
-        { text: ', and served as ' },
-        { text: 'Company Commander, 112 Brigade Signal Company', highlight: true },
+        { text: ', with ' },
+        { text: '112 Brigade Signal Company', highlight: true },
         { text: '.' },
       ],
     },
@@ -891,7 +886,7 @@ export const portfolio = {
         { text: 'Bandarban, Chittagong Hill Tracts', highlight: true },
         { text: ' during ' },
         { text: 'Operation Uttoron', highlight: true },
-        { text: ' as Company Commander, with duty as a staff member of ' },
+        { text: ', with duty as a staff member of ' },
         { text: '97 Infantry Brigade', highlight: true },
         { text: '.' },
       ],
@@ -906,7 +901,7 @@ export const portfolio = {
         { text: 'Ruma, Bandarban', highlight: true },
         { text: ' to ' },
         { text: 'Ramu, Cox\'s Bazar', highlight: true },
-        { text: ' and continued as Company Commander until June 2025.' },
+        { text: ' and continued there until June 2025.' },
       ],
     },
     {
@@ -941,8 +936,8 @@ export const portfolio = {
       title: 'Automobile Association of Bangladesh',
       jobId: 'aab',
       detail: [
-        { text: 'Deputy General Manager', highlight: true },
-        { text: ' for Membership, Security Services and Issuance at ' },
+        { text: 'Membership, security services, and issuance', highlight: true },
+        { text: ' at ' },
         { text: '3B, Moghbazar, Dhaka', highlight: true },
         { text: '. ' },
         { text: 'March–April 2026', highlight: true },
@@ -952,11 +947,10 @@ export const portfolio = {
     {
       year: '2026',
       category: 'job',
-      title: "General Manager, Dreamer's companies",
+      title: "Dreamer's companies",
       jobId: 'dreamers',
       detail: [
-        { text: 'General Manager', highlight: true },
-        { text: ' of ' },
+        { text: 'Work across ' },
         { text: "Dreamer's Den, Dreamer's Construction, and Sweet Dream Agro Farm", highlight: true },
         { text: ' at ' },
         { text: 'Mirpur DOHS, Dhaka', highlight: true },
@@ -1155,7 +1149,7 @@ export const portfolio = {
       dates: 'January 2020 – August 2024',
       blocks: [
         {
-          label: 'Battalion Adjutant',
+          label: 'Battalion',
           groups: [
             {
               label: 'Operation',
@@ -1200,7 +1194,7 @@ export const portfolio = {
           ],
         },
         {
-          label: 'Company/Platoon Commander',
+          label: 'Company',
           groups: [
             {
               label: 'Operation',
@@ -1225,7 +1219,7 @@ export const portfolio = {
               label: 'Security',
               items: [
                 'Coordinated security and surveillance for National Armed Forces Day at Sena Kunja in 2022 and 2023.',
-                'Acted as Security and Surveillance Officer for Boshonto Boron in 2023 and 2024, including the Army-level event.',
+                'Handled security and surveillance for Boshonto Boron in 2023 and 2024, including the Army-level event.',
                 'Coordinated security, surveillance, and media coverage for the 2nd Bangladesh Youth Games in 2024.',
                 'Coordinated surveillance, security, and administrative coverage for the inauguration of Sena Prangan in 2024.',
                 'Ensured compliance with security protocols for activities inside and outside the cantonment.',
@@ -1256,14 +1250,14 @@ export const portfolio = {
       date: 'Aug – Oct 2023',
       category: 'Military Course',
       description:
-        'Successfully completed Basic Commando Course 73 under the School of Infantry and Tactics, Bangladesh Army. BA-10481 Captain Tanvir Nahian Swapnil.',
+        'Successfully completed Basic Commando Course 73 under the School of Infantry and Tactics, Bangladesh Army. BA-10481 Tanvir Nahian Swapnil.',
     },
     {
       title: "Officers' Weapons Course 107",
       date: 'Oct – Nov 2023',
       category: 'Military Course',
       description:
-        "Successfully completed Officers' Weapons Course 107 under the School of Infantry and Tactics, Bangladesh Army. BA-10481 Captain Tanvir Nahian Swapnil.",
+        "Successfully completed Officers' Weapons Course 107 under the School of Infantry and Tactics, Bangladesh Army. BA-10481 Tanvir Nahian Swapnil.",
     },
     {
       title: 'Operation Utoron — Bandarban',
@@ -1273,6 +1267,18 @@ export const portfolio = {
         'Commanded over 500 under-command during Operation Uttoron in Bandarban, Chittagong Hill Tracts. Designed secure ICT networks and served as cybersecurity advisor in remote operational areas.',
     },
   ] satisfies Achievement[],
+  engagement: {
+    viewsUrl: 'https://badge-visitor-count.vercel.app/api/hit/tanvir-portfolio-views',
+    likesHitUrl: 'https://badge-visitor-count.vercel.app/api/hit/tanvir-portfolio-likes',
+    likesReadUrl: 'https://badge-visitor-count.vercel.app/api/badge/tanvir-portfolio-likes',
+  },
+  profileOrder: {
+    line: 'A profile built from scratch, in this spirit',
+    note: 'Name, roles, timeline, and contact, as one link.',
+    email: 'zabulanakakil@gmail.com',
+    subject: 'Portfolio order — a site like this',
+    body: 'Hello,\n\nI would like a portfolio built from scratch, in this spirit.\n\nName:\nWhat to include:\n',
+  },
   contacts: {
     email: 'officialtanvirnahian@gmail.com',
     phones: ['+8801790136979', '+8801608892998'],

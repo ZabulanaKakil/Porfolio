@@ -196,6 +196,18 @@ export function ContactsSection() {
 
         <SharePortfolio onCopied={(label) => setCopied(label)} />
 
+        <article className="card-glass profile-order-card">
+          <h3 className="profile-order-line">{portfolio.profileOrder.line}</h3>
+          <p className="profile-order-note">{portfolio.profileOrder.note}</p>
+          <a
+            className="contacts-cv-download profile-order-mail"
+            href={`mailto:${portfolio.profileOrder.email}?subject=${encodeURIComponent(portfolio.profileOrder.subject)}&body=${encodeURIComponent(portfolio.profileOrder.body)}`}
+          >
+            <Mail size={18} aria-hidden="true" />
+            {portfolio.profileOrder.subject}
+          </a>
+        </article>
+
         <div className="card-glass site-footer-meta">
           <p className="site-footer-meta__line">© {new Date().getFullYear()} {portfolio.name}. All rights reserved.</p>
           <p className="site-footer-meta__line">Last corrected at {portfolio.lastCorrectedAt}</p>

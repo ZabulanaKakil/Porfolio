@@ -10,7 +10,7 @@ export function getPortfolioShareUrl(): string {
 }
 
 export function getPortfolioShareMessage(url = getPortfolioShareUrl()): string {
-  return `Check out Capt Nahian (Retd)'s Portfolio at ${url}`
+  return `Check out Tanvir Nahian Swapnil's Portfolio at ${url}`
 }
 
 export interface ShareOption {
@@ -24,7 +24,7 @@ export function getPortfolioShareOptions(url = getPortfolioShareUrl()): ShareOpt
   const message = getPortfolioShareMessage(url)
   const encodedMessage = encodeURIComponent(message)
   const encodedUrl = encodeURIComponent(url)
-  const encodedSubject = encodeURIComponent("Capt Nahian (Retd)'s Portfolio")
+  const encodedSubject = encodeURIComponent("Tanvir Nahian Swapnil's Portfolio")
 
   return [
     {
@@ -70,7 +70,7 @@ export async function sharePortfolioNatively(url = getPortfolioShareUrl()): Prom
 
   try {
     await navigator.share({
-      title: "Capt Nahian (Retd)'s Portfolio",
+      title: "Tanvir Nahian Swapnil's Portfolio",
       text: message,
       url,
     })

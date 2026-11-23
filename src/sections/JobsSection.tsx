@@ -41,7 +41,6 @@ export function JobsSection() {
                 >
                   <span className="job-card-toggle-copy">
                     <span className="job-card-org-text">{role.organization}</span>
-                    <span className="job-card-appointment">{role.appointment}</span>
                     <span className="job-card-meta">
                       {role.location}
                       <span aria-hidden="true"> · </span>
